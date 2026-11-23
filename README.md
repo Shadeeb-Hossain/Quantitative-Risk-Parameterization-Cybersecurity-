@@ -31,4 +31,14 @@ background noise versus active adversary signatures. (B)
 Posterior attack probability trajectory triggering automated
 containment upon crossing critical Stackelberg decision
 threshold.
-Fig.
+
+________________________________________________________________________________________________________________________________
+
+****MATLAB Source Code : **** Fig_5_SIEM_different_trigger_times.m
+
+<img width="824" height="709" alt="Fig_5" src="https://github.com/user-attachments/assets/1e5d4209-ff3e-43ca-9005-3848cb2dcc9a" />
+
+Figure 5 : Fig. 5: Dynamic Stackelberg containment threshold shifts and
+SOAR trigger times under parametric variations of perimeter
+exploitability P(E).
+
