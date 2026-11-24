@@ -1,0 +1,58 @@
+{
+  "status": "MATH_CHECKS_PASS",
+  "engine": "MATLAB",
+  "version": "26.2.0.3433840 (R2026b) Update 1",
+  "test_groups_passed": 7,
+  "poisson_log_mass_comparisons": 21,
+  "maximum_poisson_log_ratio_error": 7.2759576141834259E-12,
+  "alert_cutoff": 62,
+  "actual_false_positive_probability": 0.0423909349650847,
+  "actual_sensitivity": 0.97809401096719772,
+  "legacy_assumed_false_positive_probability": 0.03,
+  "legacy_assumed_sensitivity": 0.9,
+  "legacy_near_symmetric_PERT_alpha_error": 1.0000000000000009,
+  "legacy_high_count_posterior_is_nan": true,
+  "legacy_probability_saturates_after_reversible_evidence": true,
+  "stable_log_odds_return_to_prior_error": 1.2611439670351388E-14,
+  "binary_first_crossing_seconds": null,
+  "binary_legacy_probabilities_same_counts_first_crossing_seconds": 56,
+  "count_first_crossing_seconds": [
+    21,
+    21,
+    21
+  ],
+  "binary_elevated_seconds": 40,
+  "count_elevated_seconds": 60,
+  "fair": {
+    "seed": 42,
+    "sample_count": 10000,
+    "alpha": [
+      2.7142857142857144,
+      2.4,
+      2.1428571428571428
+    ],
+    "beta": [
+      3.2857142857142851,
+      3.6,
+      3.8571428571428572
+    ],
+    "analytic_mean_annual_exposure": 92.691666666666663,
+    "sample_mean_annual_exposure": 92.470822314897632,
+    "sample_std_annual_exposure": 16.808906299800171,
+    "sample_p95_annual_exposure": 121.91292144590234,
+    "sample_median_annual_exposure": 91.211553566060587
+  },
+  "empirical_service_verdict": "NOT_PASSED",
+  "new_traffic_trials": 0,
+  "prepared_by": "Elias Calboreanu",
+  "empirical_audit": {
+    "status": "PASS",
+    "cases": 144,
+    "retained_rows": 43200,
+    "synthetic_window_rows": 226,
+    "independent_count_threshold_checks": 86400,
+    "equality_checks": 108,
+    "maximum_log_mass_difference": 3.694822225952521E-12,
+    "maximum_tolerance_ratio": 0.019295768812673478
+  }
+}

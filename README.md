@@ -1,6 +1,8 @@
 # From Reconnaissance to Response
 
-This repository contains the original MATLAB simulations by Shadeeb Hossain and a MATLAB-compatible empirical reproduction companion prepared by Elias Calboreanu. The companion connects the likelihood formulation to measured TCP connection state, compares the resulting decisions with count and persistence controls, and documents the practical limits of a software response.
+This working copy contains numerical revisions of Shadeeb Hossain's MATLAB illustrations and a MATLAB-compatible empirical reproduction companion prepared by Elias Calboreanu. The companion connects the likelihood formulation to measured TCP connection state, compares the resulting decisions with count and persistence controls, and documents the practical limits of a software response.
+
+The [source mathematics checks](source/README.md) document the local corrections and how to run them. These corrections have not been submitted. The earlier empirical pull request was closed without merging.
 
 ## Empirical companion
 
@@ -19,15 +21,15 @@ The revised manuscript is supplied separately for coauthor review.
 
 The companion reproduces numerical calculations and figures from retained observations. It does not generate new attack traffic or configure a router. It is a numerical supplement, not a public copy of the complete raw capture and application-record archive. The preserved study manifest identifies that underlying evidence.
 
-## Original simulations
+## Source illustrations
 
-The following original scripts are retained unchanged for comparison with the source paper:
+The following entry points now call the corrected, reproducible illustrations in `source/matlab/`. Their original contents remain in Git history at commit `2e72863ae761082d383c527a5bbd028bcf0c16bc`:
 
 | Script | Scope |
 | --- | --- |
 | `Fig_2_MONTE_CARLO_FAIR_results.m` | Illustrative FAIR Monte Carlo loss calculation |
-| `Fig_4_Dynamic_Bayesian_Stackelberg_Decision_SIEM.m` | Simulated SIEM stream and binary-alert belief update |
-| `Fig_5_SIEM_different_trigger_times.m` | Simulated count-based belief updates and threshold scenarios |
+| `Fig_4_Dynamic_Bayesian_Stackelberg_Decision_SIEM.m` | Simulated SIEM stream with alert probabilities derived from its count rule |
+| `Fig_5_SIEM_different_trigger_times.m` | Stable count-evidence updates with explicit floor and cost assumptions |
 
 These simulations are distinct from the empirical companion. Their assumed probabilities, financial parameters and belief floor are not validated by the software traffic study. The empirical implementation uses a finite-window score and a separately calibrated threshold; it does not interpret that score as a calibrated attack probability or an economically optimal action.
 
