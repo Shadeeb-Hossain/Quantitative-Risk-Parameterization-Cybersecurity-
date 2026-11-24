@@ -1,44 +1,40 @@
-# Quantitative-Risk-Parameterization-Cybersecurity-
-From Reconnaissance to Response: Quantitative Risk Parameterization and Game Theoretic Containment in Modern Enterprise Attack
--------------------------------------------------------------------------------------------------------------------------------
+# From Reconnaissance to Response
 
-Please cite the following paper if you are using the MATLAB code :
+This repository contains the original MATLAB simulations by Shadeeb Hossain and a MATLAB-compatible empirical reproduction companion prepared by Elias Calboreanu. The companion connects the likelihood formulation to measured TCP connection state, compares the resulting decisions with count and persistence controls, and documents the practical limits of a software response.
 
+## Empirical companion
 
-[1] Hossain, S., & Calboreanu, E. (2026). From Reconnaissance to Response: Quantitative Risk Parameterization and Game Theoretic Containment in Modern Enterprise Attack. arXiv preprint arXiv:2609.36485.
+The completed study contains 36 software-testbed trials. Its primary detector remained quiet in all 12 legitimate trials and crossed its threshold during all 24 SYN or NULL load windows. The score with the common gate made the same decisions as the matched count rule throughout the study. Persistence alone also alarmed during impaired legitimate activity.
 
-----------------------------------------------------------------------------------------------------------------------------------
+The service-preservation target **did not pass**. F02 retained missed ordinary-request dispatches. In F04, guarded ordinary-request p95 latency exceeded observation by 271.22 ms, above the predefined 100 ms margin, although all 58 matched requests completed. Successful filtering does not establish nondisruptive operation.
 
-**MATLAB Source Code:** Fig_2_MONTE_CARLO_FAIR_results.m 
+- [MATLAB code and reproduction instructions](empirical/README.md)
+- [Numerical data](empirical/data/)
+- [Mathematics and findings](empirical/docs/)
+- [Generated results and figures](empirical/output/)
 
+The released figures and verification report were generated locally in MATLAB R2026b Update 1. The same numerical replay also passed in GNU Octave 11.3.0. The reports distinguish numerical agreement from the study's failed service target.
 
-<img width="869" height="641" alt="Fig_2" src="https://github.com/user-attachments/assets/4c21d854-c199-4166-915f-2ad11165fe88" />
+The revised manuscript is supplied separately for coauthor review.
 
-Figure 2: Monte Carlo FAIR simulation of Annual Loss Exposure (ALE) for the 2023 MGM Resorts cyber incident (N=10,000 iterations).
+The companion reproduces numerical calculations and figures from retained observations. It does not generate new attack traffic or configure a router. It is a numerical supplement, not a public copy of the complete raw capture and application-record archive. The preserved study manifest identifies that underlying evidence.
 
---------------------------------------------------------------------------------------------------------------------------------
+## Original simulations
 
+The following original scripts are retained unchanged for comparison with the source paper:
 
-**MATLAB Source Code :** Fig_4_Dynamic_Bayesian_Stackelberg_Decision_SIEM.m 
+| Script | Scope |
+| --- | --- |
+| `Fig_2_MONTE_CARLO_FAIR_results.m` | Illustrative FAIR Monte Carlo loss calculation |
+| `Fig_4_Dynamic_Bayesian_Stackelberg_Decision_SIEM.m` | Simulated SIEM stream and binary-alert belief update |
+| `Fig_5_SIEM_different_trigger_times.m` | Simulated count-based belief updates and threshold scenarios |
 
+These simulations are distinct from the empirical companion. Their assumed probabilities, financial parameters and belief floor are not validated by the software traffic study. The empirical implementation uses a finite-window score and a separately calibrated threshold; it does not interpret that score as a calibrated attack probability or an economically optimal action.
 
-<img width="956" height="624" alt="Fig_4" src="https://github.com/user-attachments/assets/34c8a6d1-4577-44a6-afe9-4754d4b28cd8" />
+## Attribution
 
-Figure 4 : Performance of the proposed dynamic BayesianStackelberg
-decision engine under fluctuating SIEM log arrival
-rates (EPS). (A) Observed telemetry stream highlighting
-background noise versus active adversary signatures. (B)
-Posterior attack probability trajectory triggering automated
-containment upon crossing critical Stackelberg decision
-threshold.
+Original framework and MATLAB simulations: Shadeeb Hossain. Empirical implementation, reproduction package and revision preparation: Elias Calboreanu. The manuscript retains its coauthor attribution.
 
-________________________________________________________________________________________________________________________________
+Original paper: Hossain, S., and Calboreanu, E. (2026). *From Reconnaissance to Response: Quantitative Risk Parameterization and Game Theoretic Containment in Modern Enterprise Attack*. arXiv:2609.36485. https://arxiv.org/abs/2609.36485
 
-****MATLAB Source Code : **** Fig_5_SIEM_different_trigger_times.m
-
-<img width="824" height="709" alt="Fig_5" src="https://github.com/user-attachments/assets/1e5d4209-ff3e-43ca-9005-3848cb2dcc9a" />
-
-Figure 5 : Fig. 5: Dynamic Stackelberg containment threshold shifts and
-SOAR trigger times under parametric variations of perimeter
-exploitability P(E).
-
+This contribution does not add or change a repository license.

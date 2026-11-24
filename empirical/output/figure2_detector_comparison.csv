@@ -1,0 +1,16 @@
+profile,rule,trial_count,median_alarm_seconds,minimum_alarm_seconds,maximum_alarm_seconds
+"steady","corrected_score_gate",4,0,0,0
+"steady","count_rate_gate",4,0,0,0
+"steady","persistence",4,0,0,0
+"bursty","corrected_score_gate",4,0,0,0
+"bursty","count_rate_gate",4,0,0,0
+"bursty","persistence",4,0,0,0
+"impaired","corrected_score_gate",4,0,0,0
+"impaired","count_rate_gate",4,0,0,0
+"impaired","persistence",4,84,84,84
+"syn","corrected_score_gate",16,86,86,87
+"syn","count_rate_gate",16,86,86,87
+"syn","persistence",16,86,86,87
+"null","corrected_score_gate",8,86,86,86
+"null","count_rate_gate",8,86,86,86
+"null","persistence",8,86,86,86

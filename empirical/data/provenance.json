@@ -1,0 +1,41 @@
+{
+  "sealed_artifact_manifest_sha256": "9640ff3a83b309a86b85171496f9755c243db66decabc0f257410f349f9a1201",
+  "pretest_freeze_manifest_sha256": "9c60eaefbe8b57e6d5475edd9601c0a650806bb93acede09a3bcc0d1de859e9c",
+  "source_sha256": {
+    "Analysis/Results/heldout/COMBINED_CONTRACT.json": "e79bad5b154f75a004d4bea08b573328d846045aa8d8c40c467d55cc262e9488",
+    "Analysis/Results/heldout/PAIRED_APPLICATION_COMPARISONS.json": "73c5b8c47e2134420578c9cf27ae346870d0977ecc22f5f8bdd11c95ac2a0e7c",
+    "Analysis/Results/heldout/RESULTS.json": "29ccf83a5b7530f5799d691db192cc5c1e87585136974ab8267b8f66c529d14d",
+    "Analysis/Results/heldout/f02o.json": "4f08303d36a5aaf55d745afb940a12928c481a6886616013b98044be0edb35ee",
+    "Analysis/Results/heldout/f02p.json": "237564facab05f6b4e0388ebc2fc1ee665e189a38a3dc2b41eda2fb5fb0923db",
+    "Analysis/Results/heldout/f04o.json": "e1acdc5ad7767a8f118999b257ecd1ed56965d94804de4c6951fb0a6a49253ae",
+    "Analysis/Results/heldout/f04p.json": "9d4d3f1ca39352a24b8a5a68bf3c9949c4180e79b50dcce829f1386989f2225e",
+    "FINAL_RESULT.json": "964518b294cc1694a4b4133345fd46053077d6e818530b849422707889f505c3",
+    "Finalization/DESCRIPTIVE_SUMMARY_v1.json": "203db37354e02e730f7c25f4488320973f06675d964cef1141641c24cfefcca2",
+    "Finalization/Supervision/F02_RUNTIME_RESOURCE_FORENSICS_v1/DIAGNOSIS_v3.json": "8140076001c33f38a116bf62e29acf74bf6439b036a4008f2a1851d08ee5e52f",
+    "Finalization/Supervision/F04_PRIMARY_LATENCY_COHORT_v1.json": "4d5d3981c5b89176b6d5c954c0fc1dae2c2e543021afc2484c3e34fd15059eca",
+    "Lab/results/f04p/state_decisions.jsonl.gz": "b53f2cf576ac082d8fae3c4b7aad579e8d2774df2972d007b4072beaf6f3d7e2",
+    "Models/BENIGN_FIT_REPORT.json": "188c966662ba9ff55fc43dd41d6ce956e4e61f30f2f60aeabc6da82d99045c03",
+    "Models/quantity_model.json": "4374755513f5b3a6ca7434673a3e74d7a35ede15b3479b0345e4ffbb6d0729c1",
+    "Models/quantity_policy.json": "96ee60a6a74bb6b05cde25cacbfed918db06bdcedb4f9126ca7735c868262edb",
+    "Models/state_model.json": "dca66e8f9604767e8ecb358313961e322d867669cd4cbcdcb93e620b5f2150d8",
+    "Models/state_policy.json": "9944364e19ea11ee53c5f884b2ec75117e1177dbe7316bc51f482ee91b5b50e8",
+    "NativeHeldout/INPUT_INDEX.json": "9ed0c590f64edfdb3794f92054ebfd15fed1f52dae0d208d0627b4127d0c88f3",
+    "NativeHeldout/VERIFICATION.json": "a35aeabb39abac761628e25c284ad43cf678f6be902de8cb71e8bccc0b6372bf",
+    "REPRODUCTION_CHECK.json": "bf3ca163cd5274ad71416f9c2b4d6af36c841bb7a70448e52676d16ee67fc858"
+  },
+  "export_sha256": {
+    "arm_summary.csv": "77a3aaf4e4db24b40dfdd1a7bdd934edbfcb934790e4da73bed38f7d0cb800a9",
+    "f02_dispatch_failures.csv": "b665f0d549935cebcfb22b210a1ae3b76fec9fc9ba9ff82c5956255e02a89f1b",
+    "f02_matched_requests.csv": "555860ca5c0234ba31c83e0f61389823e3df3da2e00d922a7b54b19e38356050",
+    "f04_events.csv": "646272b8a0982a03478633262a118213c4d29328e4432decf08959df8295ffef",
+    "f04_guarded_requests.csv": "781c5fd92636bcd4ea136f9d4f0e6dabc270741537b280b06ae93b93b2faf705",
+    "f04_timeline.csv": "1f90a7555a0d39e8693616a37182952897d80b2bb282a9e39acfabe9aa92dee4",
+    "measurement_summary.csv": "66562e407546ca8cad90e89c1046a8811d47fc23042504ec148bfe0ac549f316",
+    "native_case_index.json": "e5a4212f577d743a9b638f237b2b978774d8e678a7914668b9c942bf9397dc04",
+    "native_cases.csv": "f98706769b3a8af48b453ef392c93b520f6392cf449abf6712d520e68e0f0de6",
+    "native_parameters.json": "9546ea2b9c3746edd1796a504102decff16051d0b879cf07aac35151a3487a69",
+    "primary_cohorts.csv": "54d12579d204d45d5e15761ef1019bdbe7d3df9f538717180b309718f75c1325",
+    "study_summary.json": "febabc064bd5f7068246f65d46f982943789152bcbd43684e10e404c8e1616fe",
+    "trial_summary.csv": "37af10ebf29d6c5d7a1377b19f0881dd72c3d551af18f65cb9fd480d1a4b1c26"
+  }
+}

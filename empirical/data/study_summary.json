@@ -1,0 +1,121 @@
+{
+  "status": "NOT_PASSED",
+  "study_complete": true,
+  "planned_trials": 36,
+  "completed_trials": 36,
+  "freeze_sha256": "9c60eaefbe8b57e6d5475edd9601c0a650806bb93acede09a3bcc0d1de859e9c",
+  "frozen_files": 819,
+  "primary_cohorts_passed": 197,
+  "primary_cohorts_assessed": 199,
+  "primary_groups": {
+    "logical_full": {
+      "assessed": 21,
+      "passed": 20,
+      "maximum_p95_delta_ms": 22.098613549999993,
+      "minimum_p95_delta_ms": -5.824662400000079
+    },
+    "logical_guarded": {
+      "assessed": 20,
+      "passed": 19,
+      "maximum_p95_delta_ms": 271.2153502999978,
+      "minimum_p95_delta_ms": -1.5024252000000002
+    },
+    "message_full": {
+      "assessed": 54,
+      "passed": 54,
+      "maximum_p95_delta_ms": 1.8295865999999368,
+      "minimum_p95_delta_ms": -5.6440079999999835
+    },
+    "message_guarded": {
+      "assessed": 60,
+      "passed": 60,
+      "maximum_p95_delta_ms": 3.3281596500000004,
+      "minimum_p95_delta_ms": -23.073225649999998
+    },
+    "connection_full": {
+      "assessed": 36,
+      "passed": 36,
+      "maximum_p95_delta_ms": null,
+      "minimum_p95_delta_ms": null
+    },
+    "connection_guarded": {
+      "assessed": 8,
+      "passed": 8,
+      "maximum_p95_delta_ms": null,
+      "minimum_p95_delta_ms": null
+    }
+  },
+  "failed_primary_cohorts": [
+    {
+      "kind": "logical",
+      "block_id": "f02",
+      "role": "affected",
+      "channel": "new_tcp",
+      "phase": "full",
+      "complete": true,
+      "newly_harmed": 1,
+      "failure_difference": -7,
+      "p95_delta_ms": 22.098613549999993,
+      "pass": false
+    },
+    {
+      "kind": "logical",
+      "block_id": "f04",
+      "role": "affected",
+      "channel": "continuity_new_tcp",
+      "phase": "guarded_admission",
+      "complete": true,
+      "newly_harmed": 0,
+      "failure_difference": 0,
+      "p95_delta_ms": 271.2153502999978,
+      "pass": false
+    }
+  ],
+  "absolute_selective_trials_passed": 8,
+  "combined_flags": {
+    "analysis_report_identity_pass": true,
+    "quality_report_identity_pass": true,
+    "backend_configuration_contract_pass": true,
+    "collector_boundary_contract_pass": true,
+    "primary_cohort_identity_pass": true,
+    "primary_logical_contract_pass": false,
+    "primary_service_continuity_contract_pass": true,
+    "absolute_selective_zero_disruption_pass": false,
+    "full_report_row_binding_pass": true,
+    "host_evidence_contract_pass": true,
+    "dispatch_quality_pass": false,
+    "measurement_quality_pass": false,
+    "detection_pattern_contract_pass": true,
+    "native_math_pass": true,
+    "math_verification_pass": true,
+    "response_contract_pass": true,
+    "fresh_evaluation_joint_pass": false
+  },
+  "fit_trials": [
+    "fstep",
+    "fburst",
+    "fimp"
+  ],
+  "calibration_trials": [
+    "cstep",
+    "cburst",
+    "cimp"
+  ],
+  "original_native_verification": {
+    "status": "PASS",
+    "runtime": "10.3.0",
+    "native_matlab_used": false,
+    "cases": 144,
+    "rows": 43200,
+    "maximum_score_absolute_difference": 6.039613253960852e-14,
+    "exact_count_boolean_hash_comparisons": 720,
+    "max_window_count": 2159,
+    "interpretation": "Numerical equivalence on fixed observed arrays; no new performance/label/endpoint-TCP validity claim."
+  },
+  "separate_copy_reproduction": {
+    "status": "PASS",
+    "normalized_json_files_exact": 255,
+    "replay_npz_cases": 144,
+    "array_comparisons_exact": 2448
+  }
+}
