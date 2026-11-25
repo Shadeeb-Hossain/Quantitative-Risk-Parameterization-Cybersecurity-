@@ -120,7 +120,8 @@ assert(all(scoreError(:) <= scoreTolerance(:)), 'Score tolerance exceeded in %s.
 rateError = abs(out.rate - [fixture.rate1, fixture.rate2]);
 assert(all(rateError(:) <= 1e-12), 'Count-rate mismatch in %s.', caseID);
 
-% Recheck the count boundary with the same comparison as the numeric score.
+% Invert E = a*K + c*n and check adjacent counts using the forward score
+% expression so values at the bound follow the same rounding and tie rule.
 alpha = out.countCoefficient;
 assert(all(alpha > 0), 'Expected a positive count coefficient in %s.', caseID);
 offset = out.n .* out.exposureCoefficient;

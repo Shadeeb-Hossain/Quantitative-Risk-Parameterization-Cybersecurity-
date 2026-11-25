@@ -1,6 +1,8 @@
 function [logOdds, belief] = evidence_path(increments, prior, floorProbability)
 %EVIDENCE_PATH Accumulate evidence without probability-space saturation.
-% Elias Calboreanu. A positive floor defines a modified diagnostic rule.
+% Elias Calboreanu
+% Each increment is a log likelihood ratio. A zero floor gives additive
+% log-odds updates. A positive floor clamps the update at its log odds.
 assert(isvector(increments) && all(isfinite(increments(:))) && ...
     isscalar(prior) && isfinite(prior) && prior > 0 && prior < 1 && ...
     isscalar(floorProbability) && isfinite(floorProbability) && ...

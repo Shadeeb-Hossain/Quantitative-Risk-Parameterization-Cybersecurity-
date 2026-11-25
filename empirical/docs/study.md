@@ -2,13 +2,13 @@
 
 Elias Calboreanu
 
-The completed F study ran nine workload blocks under four policies, for 36 trials. The joint verdict was **NOT_PASSED**. The primary state rule detected a new crossing in each of the 24 prescribed SYN or NULL trials and stayed quiet in all 12 legitimate trials. Two of 199 primary service cohorts failed. Eight of nine conditional-proxy trials met the separate whole-trial zero-disruption requirement.
+The 36-trial F study ran nine workload blocks under four policies. The joint verdict was **NOT_PASSED**. The primary state rule crossed its threshold in all 24 SYN or NULL trials and stayed quiet in all 12 legitimate trials. Two of 199 primary service cohorts failed. Eight of nine conditional-proxy trials met the whole-trial zero-disruption requirement.
 
 ## Measurement and design
 
-Each trial is 300 seconds, with 120 seconds of baseline, a scheduled 90-second main window and 90 seconds of follow-up. Four policies ran concurrently within each block on one virtualized host. The policies were observe, conditional drop, conditional proxy and always-on proxy. The nine blocks were steady, bursty and impaired legitimate activity, two SYN blocks with ordinary continuity traffic, two SYN blocks with impaired ordinary continuity traffic, and two NULL blocks. Controlled load profiles are experimental conditions. The two observation roles are the affected source and a peer.
+Each trial ran for 300 seconds, with 120 seconds of baseline, a scheduled 90-second main window and 90 seconds of follow-up. The observe, conditional drop, conditional proxy and always-on proxy policies ran concurrently within each block on one virtualized host. The nine blocks comprised steady, bursty and impaired legitimate activity, two SYN blocks with ordinary continuity traffic, two SYN blocks with impaired ordinary continuity traffic, and two NULL blocks. Observations cover the affected source and a peer.
 
-The state detector counts matured attempts whose three-way handshake was still uncompleted at a ten-second deadline, and flags-zero packets on tuples without retained established or closing state. The first quantity comparator counts all matured attempts at the same deadline. Its second feature counts all flags-zero packets. Each configured-service initiator supplies one row per observed second and retains eligible zero history. A missing or ineligible bin ends a coverage component. The collector uses a 250 ms closure allowance, with late frames and observed quality failures subject to abstention. All 10,800 trial seconds in F were eligible. The dataset begins with measured feature arrays and treatment records.
+The state detector counts attempts whose three-way handshake remains incomplete at a ten-second deadline, and flags-zero packets on tuples without retained established or closing state. The quantity detector counts all attempts matured at the same deadline and all flags-zero packets. Each configured-service initiator supplies one row per observed second, including eligible zero counts. A missing or ineligible bin ends a coverage component. The collector allows 250 ms to close a bin, and late frames and measured quality failures can cause abstention. All 10,800 trial seconds in F were eligible. The dataset contains measured feature arrays and treatment records.
 
 ## Working score and matched count rules
 
@@ -22,7 +22,7 @@ a=\log q-d,\qquad c=-rd.
 $$
 Under the Poisson reference, $a=\log q$ and $c=-(q-1)\mu$. The reference is a working marginal and $E$ is a log score. Temporal independence and posterior calibration are outside the study's scope.
 
-The rule is eligible once $n\ge30$. Its persistence gate requires at least ten positive bins among the latest 15 in the same component. For each feature, three separate benign calibration runs contribute 906 valid source-seconds. The score bound $B$ is the larger of 1 and one plus the largest gated calibration score, using 1 if there is no gated observation. The rate cutoff $R$ is the maximum calibration rate over valid windows. The fit and calibration were frozen before F.
+Decisions require $n\ge30$. The persistence gate requires at least ten positive bins among the latest 15 in the same component. For each feature, three separate benign calibration runs contribute 906 valid source-seconds. The score bound $B$ is the larger of 1 and one plus the largest gated calibration score, using 1 if there is no gated observation. The rate cutoff $R$ is the maximum calibration rate over valid windows. The fit and calibration were frozen before F.
 
 | Decision family | Per-feature condition in a valid window |
 | --- | --- |
@@ -42,7 +42,7 @@ Feature decisions are combined by OR within a source and source decisions by OR 
 | SYN | 16 | 86–87 | 86–87 | 16/16 | 16/16 |
 | NULL | 8 | 86 | 86 | 8/8 | 8/8 |
 
-During impaired legitimate activity the numerical thresholds removed the gate-only alarms. The likelihood score supplied no observed decision advantage over the matched count control in any F trial. The quantity ablation gave 66 score-plus-gate alarm seconds in each steady legitimate trial. All five families for both feature sets are in the per-trial data.
+During impaired legitimate activity the numerical thresholds removed the gate-only alarms. The gated likelihood score and gated count control made identical decisions in all F trials. The quantity ablation gave 66 score-plus-gate alarm seconds in each steady legitimate trial. The per-trial data include all five decision families for both feature sets.
 
 ## F04 crossing and guarded service outcome
 
@@ -62,8 +62,8 @@ Conditional proxy recorded 23,825 successes across 23,856 intended ordinary logi
 
 ## Reproduction scope
 
-The frozen study initially verified 144 observed cases and 43,200 per-source rows in GNU Octave 10.3.0. Its 720 exact count or Boolean hash comparisons passed, and the largest absolute score difference was approximately $6.04\times10^{-14}$. The separate-copy source reproduction matched 255 normalized reports and 2,448 arrays. Those checks establish arithmetic and result integrity on fixed observations. The evidence supports a finite software study. It leaves open population error rates, endpoint or physical-device transfer, sustained 24% sensitivity, full-load containment and economic benefit.
+The original verification covered 144 cases and 43,200 per-source rows in GNU Octave 10.3.0. All 720 exact count or Boolean hash comparisons passed. The largest absolute score difference was approximately $6.04\times10^{-14}$. An independent replay from a separate copy matched 255 normalized reports and 2,448 arrays. This finite software-testbed study leaves open population error rates, transfer to other endpoints or physical devices, sensitivity to a sustained 24% increase, full-load containment and economic benefit.
 
-The released figures were subsequently generated by the accompanying implementation in local MATLAB R2026b Update 1. The same numerical replay also passed in GNU Octave 11.3.0. The [MATLAB verification report](../output/verification.json) and [Octave verification report](../verification/octave_11_3_0.json) record the separate runtime results. These replays use the retained observations and introduce no new traffic trials.
+MATLAB R2026b Update 1 generated the figures from the retained observations. The same numerical replay passed in GNU Octave 11.3.0. [MATLAB verification report](../output/verification.json) and [Octave verification report](../verification/octave_11_3_0.json)
 
 See [the data dictionary](data.md) for identifiers, units and provenance.

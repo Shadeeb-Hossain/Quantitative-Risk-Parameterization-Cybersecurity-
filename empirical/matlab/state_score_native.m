@@ -1,8 +1,8 @@
 function out = state_score_native(x, component, mu, shape, scoreBound, rateCutoff)
 %STATE_SCORE_NATIVE Replay five rules on two observed per-second features.
 % Elias Calboreanu. Adapted from the frozen response-watermark MATLAB scorer.
-% A NaN shape selects the Poisson working marginal. The score is an
-% affine log-likelihood contrast in count and exposure.
+% mu is the reference mean count per second. A NaN shape selects the
+% Poisson working marginal. The alternative mean is q times mu.
 % Rows with component -1 are ineligible. Each nonnegative component must
 % occupy one contiguous segment and starts with empty windows.
 
@@ -35,6 +35,8 @@ assert(numel(mu) == 2 && numel(shape) == 2 && numel(scoreBound) == 2 && ...
 
 countCoefficient = repmat(log(q), 1, 2);
 exposureCoefficient = -(q - 1) * mu;
+% For the negative binomial, compute d = log((shape + q*mu)/(shape + mu))
+% as log1p of the relative change. The coefficients are log(q) - d and -shape*d.
 nb = ~isnan(shape);
 adjustment = log1p((q - 1) * mu(nb) ./ (shape(nb) + mu(nb)));
 countCoefficient(nb) = countCoefficient(nb) - adjustment;
@@ -82,6 +84,7 @@ for i = 1:rows
     n15(i) = min(used, gateWindow);
 end
 
+% E = a*K + c*n sums log mass ratios over n eligible one-second bins.
 E = K .* countCoefficient + n .* exposureCoefficient;
 valid = n >= minExposure;
 gate = (O15 >= minOccupied) & valid;

@@ -1,29 +1,38 @@
 # From Reconnaissance to Response
 
-This working copy contains numerical revisions of Shadeeb Hossain's MATLAB illustrations and a MATLAB-compatible empirical reproduction companion prepared by Elias Calboreanu. The companion connects the likelihood formulation to measured TCP connection state, compares the resulting decisions with count and persistence controls, and documents the practical limits of a software response.
+This repository contains corrected versions of Shadeeb Hossain's MATLAB illustrations and numerical replays of two software-testbed studies. The studies compare decisions based on measured TCP connection state with count and persistence rules and measure the service impact of the response.
 
-The [source mathematics checks](source/README.md) document the local corrections and how to run them. These corrections have not been submitted. The earlier empirical pull request was closed without merging.
+## Original 36-trial study
 
-## Empirical companion
+The primary detector remained quiet in all 12 legitimate trials and crossed its threshold during all 24 SYN or NULL load windows. With a common persistence gate, the score and the matched count rule made identical decisions throughout the study. Persistence alone also alarmed during impaired legitimate activity.
 
-The completed study contains 36 software-testbed trials. Its primary detector remained quiet in all 12 legitimate trials and crossed its threshold during all 24 SYN or NULL load windows. The score with the common gate made the same decisions as the matched count rule throughout the study. Persistence alone also alarmed during impaired legitimate activity.
+The service-preservation target **failed**. F02 missed ordinary-request dispatches and failed the paired service comparison. In F04, the guarded cohort's ordinary-request p95 latency was 271.22 ms higher under conditional proxy than under observation, exceeding the predefined 100 ms margin. All 58 matched requests completed.
 
-The service-preservation target **did not pass**. F02 retained missed ordinary-request dispatches. In F04, guarded ordinary-request p95 latency exceeded observation by 271.22 ms, above the predefined 100 ms margin, although all 58 matched requests completed. Successful filtering does not establish nondisruptive operation.
-
-- [MATLAB code and reproduction instructions](empirical/README.md)
+- [MATLAB and Octave replay instructions](empirical/README.md)
 - [Numerical data](empirical/data/)
-- [Mathematics and findings](empirical/docs/)
+- [Mathematics and findings](empirical/docs/study.md)
 - [Generated results and figures](empirical/output/)
 
-The released figures and verification report were generated locally in MATLAB R2026b Update 1. The same numerical replay also passed in GNU Octave 11.3.0. The reports distinguish numerical agreement from the study's failed service target.
+MATLAB R2026b Update 1 generated the figures and verification report. The same numerical replay also passed in GNU Octave 11.3.0. Replay uses retained numerical observations. Full packet and service-log reconstruction requires the archived captures and application records identified by the study manifest.
 
-The revised manuscript is supplied separately for coauthor review.
+## Subsequent six-trial study
 
-The companion reproduces numerical calculations and figures from retained observations. It does not generate new attack traffic or configure a router. It is a numerical supplement, not a public copy of the complete raw capture and application-record archive. The preserved study manifest identifies that underlying evidence.
+An instrumented diagnostic missed 3 of 1,549 ordinary requests or messages and recorded another first call beyond the 250 ms dispatch bound. A same-schedule confirmation and five subsequent regression trials ran with the host idle and the acceptance criteria unchanged. All 9,664 ordinary requests and messages succeeded. All 42 paired service cohorts passed, with maximum added p95 latency of 1.92172455 ms. The NULL response lease renewed 10 times. None of the 567 packets offered after the initial expiry reached the backend, and the lease expired after qualifying traffic stopped.
+
+Native MATLAB reproduced 1,200 rows from 12 source cases with zero maximum absolute score error and rejected four corrupted-input controls. The gated score, gated count and persistence-only decisions agreed on these observations. These results describe the evaluated software response under the stated conditions. Evaluation under competing background workloads and on a physical Cisco ASA remains future work. F02 and F04 retain their original verdicts.
+
+To replay the subsequent observations, open the repository root in MATLAB and choose a new output directory. [Replay requirements](followup/README.md)
+
+```matlab
+addpath('followup');
+run_followup(fullfile(tempdir,'recon_followup_check'));
+```
+
+Fresh live trials require adaptation to the local VM and kernel. The November 24, 2026 manuscript candidate and reproduction archive are supplied separately for coauthor review.
 
 ## Source illustrations
 
-The following entry points now call the corrected, reproducible illustrations in `source/matlab/`. Their original contents remain in Git history at commit `2e72863ae761082d383c527a5bbd028bcf0c16bc`:
+The original scripts are preserved at commit `2e72863ae761082d383c527a5bbd028bcf0c16bc`. The current entry points call the corrected illustrations in `source/matlab/`. [Source mathematics checks](source/README.md)
 
 | Script | Scope |
 | --- | --- |
@@ -31,12 +40,10 @@ The following entry points now call the corrected, reproducible illustrations in
 | `Fig_4_Dynamic_Bayesian_Stackelberg_Decision_SIEM.m` | Simulated SIEM stream with alert probabilities derived from its count rule |
 | `Fig_5_SIEM_different_trigger_times.m` | Stable count-evidence updates with explicit floor and cost assumptions |
 
-These simulations are distinct from the empirical companion. Their assumed probabilities, financial parameters and belief floor are not validated by the software traffic study. The empirical implementation uses a finite-window score and a separately calibrated threshold; it does not interpret that score as a calibrated attack probability or an economically optimal action.
+The simulations assume probabilities, financial parameters and a belief floor whose empirical validity remains untested. The empirical implementation uses a finite-window log score and a separately calibrated threshold. Posterior calibration and economic optimality remain outside the empirical studies' scope.
 
 ## Attribution
 
-Original framework and MATLAB simulations: Shadeeb Hossain. Empirical implementation, reproduction package and revision preparation: Elias Calboreanu. The manuscript retains its coauthor attribution.
+Shadeeb Hossain developed the original framework and MATLAB simulations. Elias Calboreanu prepared the empirical implementation, replay code and revisions. Both authors retain their manuscript attribution.
 
-Original paper: Hossain, S., and Calboreanu, E. (2026). *From Reconnaissance to Response: Quantitative Risk Parameterization and Game Theoretic Containment in Modern Enterprise Attack*. arXiv:2609.36485. https://arxiv.org/abs/2609.36485
-
-This contribution does not add or change a repository license.
+Hossain, S., and Calboreanu, E. (2026). *From Reconnaissance to Response: Quantitative Risk Parameterization and Game Theoretic Containment in Modern Enterprise Attack*. [arXiv:2609.36485](https://arxiv.org/abs/2609.36485)

@@ -1,6 +1,8 @@
 function [cutoff, falsePositive, sensitivity] = model_alert_rates(mean0, mean1, quantile)
 %MODEL_ALERT_RATES Exact Poisson probabilities for the strict count alert.
 % Elias Calboreanu
+% The reference cutoff is the first integer with CDF at least quantile.
+% Both alert probabilities use the upper count tail P(X > cutoff).
 assert(all(isfinite([mean0, mean1, quantile])) && mean0 > 0 && mean1 > 0 && ...
     quantile > 0 && quantile < 1, 'Invalid alert parameters.');
 cutoff = 0;

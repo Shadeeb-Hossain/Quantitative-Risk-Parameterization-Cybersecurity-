@@ -1,10 +1,10 @@
 # Held-out empirical analysis
 
-Elias Calboreanu prepared this MATLAB-language implementation and the empirical figure entry point for *From Reconnaissance to Response*. The historical illustrative MATLAB scripts from Shadeeb Hossain are in the repository root.
+This numerical supplement reproduces the 36-trial F study for *From Reconnaissance to Response*. Elias Calboreanu prepared the empirical implementation. Shadeeb Hossain's original MATLAB illustrations are documented with the [source mathematics checks](../source/README.md).
 
 ## Run locally
 
-From GNU Octave or MATLAB, open the repository root and run these commands. The numerical analysis uses base functions and the fixed inputs in [`data/`](data/). Figure export in GNU Octave requires a working graphics toolkit and Ghostscript.
+Open the repository root in GNU Octave or MATLAB. The analysis uses base functions and the fixed inputs in [`data/`](data/). Figure export in GNU Octave requires a graphics toolkit and Ghostscript.
 
 ```matlab
 addpath(fullfile(pwd, 'empirical', 'matlab'));
@@ -18,13 +18,13 @@ octave --no-gui --no-init-file --no-site-file --quiet --eval "addpath('empirical
 matlab -batch "addpath(fullfile(pwd,'empirical','matlab')); run_all"
 ```
 
-The entry point runs the unit tests, checks all 144 source-detector cases across 43,200 one-second rows, verifies the 36 trial alarm totals, and recomputes the F02 matched outcomes and the F04 matched-success p95 contrast. It writes the verification report and the figures' vector PDF, 300 dpi PNG, and CSV data. `case_validation.csv` records the maximum score error and tolerance ratio in each case. `trial_alarm_seconds.csv` records all five rules for each detector and trial after combining the two observed sources.
+The entry point runs the unit tests, checks 144 source-detector cases across 43,200 one-second rows, verifies the 36 trial alarm totals, and recalculates the F02 matched outcomes and F04 matched-success p95 difference. It writes the verification report, vector PDF and 300 dpi PNG figures, and figure data in CSV. `case_validation.csv` gives the maximum score error and tolerance ratio for each case. `trial_alarm_seconds.csv` gives alarm totals for all five rules after combining the two observed sources in each trial and detector.
 
 ## Numerical and service results
 
-The rolling score uses a Poisson or negative-binomial working marginal and the stipulated alternative mean multiplier of 1.24. For each feature it is affine in its 60-second rolling count and eligible exposure. It represents a log likelihood contrast under that working model. Decisions use the fixed calibration-envelope bound, at least 30 seconds of exposure, and the corresponding feature's persistence criterion of at least 10 occupied bins in the most recent 15. The gate is evaluated separately for each feature before taking the union of decisions. Input counts and Boolean decisions are compared exactly, and scores use an absolute-plus-relative tolerance of `1e-10 + 2e-12 * abs(expected)`.
+The rolling score is a log likelihood contrast under a Poisson or negative-binomial working marginal with alternative mean multiplier 1.24. It is affine in each feature's count and eligible exposure over at most 60 seconds. For each feature, the gated score rule requires the fixed calibration bound, at least 30 seconds of exposure, and at least 10 occupied bins in the most recent 15. The detector takes the union of per-feature decisions. Verification compares counts and Boolean decisions exactly and uses score tolerance `1e-10 + 2e-12 * abs(expected)`.
 
-The scientific verdict is **NOT_PASSED**. The retained service evidence has 197 of 199 passing primary cohorts. F02 affected/new TCP has one newly harmed matched request in the whole-trial cohort despite seven fewer failures overall. In the F04 guarded admission cohort, ordinary matched-success p95 is 274.63 ms under conditional proxy and 3.42 ms under observe, an added 271.22 ms against a 100 ms limit.
+The F study verdict is **NOT_PASSED**. Of 199 primary service cohorts, 197 passed. The F02 affected-source new TCP cohort had one newly harmed matched request over the whole trial, with seven fewer failures overall. In the F04 guarded admission cohort, matched ordinary requests that succeeded under both policies had p95 latencies of 274.63 ms under conditional proxy and 3.42 ms under observe. The increase of 271.22 ms exceeded the 100 ms limit.
 
 ## Figure outputs
 
@@ -34,4 +34,4 @@ The scientific verdict is **NOT_PASSED**. The retained service evidence has 197 
 | `figure3_f04_timeline` | Affected-source score around the ungated count-rate crossing at 12.251 s, the ungated score crossing at 13.254 s, and the shared gated crossing at 20.252 s. The lower panel shows observed SYN load, response installation at 20.257 s, and the guarded admission and ACK-grace intervals. Both panels use seconds since actual load start. |
 | `figure4_f04_service_latency` | All 58 paired ordinary requests that succeeded on a single attempt in each arm in the F04 guarded admission cohort. Both policies share each request's scheduled time. The log-scaled vertical axis shows request latency in milliseconds. The 100 ms bound applies to the difference between cohort p95 values. |
 
-The released figures were generated by local MATLAB R2026b Update 1. The same numerical replay also passed locally in GNU Octave 11.3.0. The archived numerical comparison used GNU Octave 10.3.0. The released [`verification.json`](output/verification.json) and [Octave verification](verification/octave_11_3_0.json) record the local runtimes and numeric measurements.
+MATLAB R2026b Update 1 generated the figures. The replay also passed in GNU Octave 11.3.0. The original numerical comparison used GNU Octave 10.3.0. [MATLAB verification](output/verification.json) and [Octave verification](verification/octave_11_3_0.json)

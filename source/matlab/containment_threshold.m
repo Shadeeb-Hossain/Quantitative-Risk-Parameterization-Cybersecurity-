@@ -1,6 +1,8 @@
 function [probability, logOdds] = containment_threshold(actionCost, harmProbability, conditionalLoss)
 %CONTAINMENT_THRESHOLD Restricted one-decision expected-cost indifference.
-% Elias Calboreanu. Costs use the same units and horizon; action prevents loss.
+% Elias Calboreanu
+% Equate action cost to p * harmProbability * conditionalLoss and solve for
+% p. The costs use the same units and horizon. Action prevents the loss.
 assert(all(isfinite([actionCost, harmProbability, conditionalLoss])) && ...
     actionCost > 0 && harmProbability > 0 && harmProbability <= 1 && ...
     conditionalLoss > 0, 'Invalid decision inputs.');

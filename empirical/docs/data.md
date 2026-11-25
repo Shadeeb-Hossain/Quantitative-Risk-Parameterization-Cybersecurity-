@@ -1,6 +1,6 @@
 # Empirical data dictionary
 
-The tables under [data](../data/) retain the held-out F study's recorded numbers. Booleans in CSV are 0 or 1. A blank value is unavailable or inapplicable. Durations and offsets use nanoseconds where marked `_ns`, milliseconds where marked `_ms`, and seconds where marked `_seconds` or `_s`. The CSV rows use round-trip decimal representations of binary64 values. Absolute timestamps and network addresses are mapped to relative times and source roles.
+The tables contain measurements and results from the held-out F study. CSV booleans use 0 or 1. A blank value is unavailable or inapplicable. Durations and offsets use nanoseconds where marked `_ns`, milliseconds where marked `_ms`, and seconds where marked `_seconds` or `_s`. The CSV rows use round-trip decimal representations of binary64 values. Absolute timestamps and network addresses are mapped to relative times and source roles. [Data files](../data/)
 
 | File | Rows or contents | Definition |
 | --- | ---: | --- |
@@ -25,14 +25,14 @@ The tables under [data](../data/) retain the held-out F study's recorded numbers
 
 For source-native digests, `K`, `n` and `O15` are little-endian float64 arrays in column-major order. `valid` and `family` are uint8. The five `family` columns are corrected-score-plus-gate, score-only, count-rate, count-rate-plus-gate and persistence. The score tolerance recorded in the source index is absolute 1e-10 and relative 2e-12.
 
-## Release boundary
+## Data provenance
 
-The data support replay of the numerical policy and the published summaries. The release includes the frozen fit and calibration parameters, all held-out feature and result arrays, the two retained failed-cohort extracts and descriptive aggregate measurements. A new packet-level reconstruction or a complete recomputation of matched identity outcomes would require the archived traffic captures and raw service logs. The fitting inputs and live testbed code also stay in the research archive.
+The supplied data reproduce the numerical policy and the published summaries. They include the frozen fit and calibration parameters, all held-out feature and result arrays, the two failed-cohort extracts and aggregate measurements. Reconstructing packet-level features or recomputing all matched request outcomes requires the archived captures and raw service logs. The research archive also holds the fitting inputs and live testbed code.
 
-The export script takes a local copy of the sealed F evidence package and a fresh destination. It checks each used source against the sealed manifest. Its SHA-256 checks cover the 144 original NPZ exports, 144 original MAT fixtures and the 720 array digests recorded in the numerical index. It derives published rows from already recorded outcomes and reads no capture payloads. Reproducing the export with the archive requires Python 3.9 or later and NumPy 1.22 or later.
+The export script reads the recorded outcomes in a local copy of the sealed F evidence package and writes the derived rows to a fresh destination. It checks used files against the sealed manifest and verifies 144 original NPZ exports, 144 original MAT fixtures and 720 array digests from the numerical index by SHA-256. The export requires Python 3.9 or later and NumPy 1.22 or later.
 
 ```sh
 python3 empirical/scripts/export_evidence.py path/to/sealed-f-study path/to/new-output
 ```
 
-The supplied data files are ready for numerical replay without access to the research evidence archive.
+Numerical replay uses the supplied data files directly.

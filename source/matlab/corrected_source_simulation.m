@@ -1,6 +1,6 @@
 function result = corrected_source_simulation(kind, makeFigures)
 %CORRECTED_SOURCE_SIMULATION Numerical revisions of Hossain's illustrations.
-% Elias Calboreanu. These are model simulations, not measured study results.
+% Elias Calboreanu
 if nargin < 2, makeFigures = true; end
 savedRandomState = rng;
 restoreRandomState = onCleanup(@() rng(savedRandomState));
@@ -18,6 +18,8 @@ end
 end
 
 function result = fairSimulation(makeFigures)
+% Each row gives the minimum, mode and maximum for annual event frequency,
+% primary loss and secondary loss. Losses are in million currency units.
 specification = [0.5, 0.8, 1.2; 80, 94, 120; 5, 15, 40];
 draws = zeros(10000, 3);
 expectations = zeros(1, 3);
@@ -49,6 +51,7 @@ end
 end
 
 function result = detectorSimulation(useCounts, makeFigures)
+% Time is in seconds. The Poisson means are counts per one-second bin.
 time = (0:100).';
 binStart = time(1:end-1);
 rate0 = 50; prior = 0.02;
@@ -78,7 +81,8 @@ end
 threshold = zeros(size(harmProbabilities));
 firstCrossing = NaN(size(harmProbabilities));
 for j = 1:numel(harmProbabilities)
-    % Assumed conditional loss over the decision horizon, not annual FAIR exposure.
+    % Action cost and assumed conditional loss use the same currency scale
+    % over this decision horizon.
     [threshold(j), bound] = containment_threshold(15, harmProbabilities(j), 92.58);
     index = find(logOdds >= bound, 1);
     if ~isempty(index), firstCrossing(j) = time(index); end
