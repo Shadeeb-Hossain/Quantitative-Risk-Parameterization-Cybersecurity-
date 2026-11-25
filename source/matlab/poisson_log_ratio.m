@@ -1,0 +1,10 @@
+function value = poisson_log_ratio(count, rate0, rate1, exposure)
+%POISSON_LOG_RATIO Log p(count|rate1)/p(count|rate0).
+% Elias Calboreanu
+% Each Poisson mean is rate times exposure in the matching time unit.
+assert(all(isfinite(count(:)) & count(:) >= 0 & count(:) == fix(count(:))) && ...
+    isscalar(rate0) && isscalar(rate1) && isscalar(exposure) && ...
+    all(isfinite([rate0, rate1, exposure])) && min([rate0, rate1, exposure]) > 0, ...
+    'Invalid Poisson observations or parameters.');
+value = count .* log(rate1 / rate0) - (rate1 - rate0) * exposure;
+end

@@ -1,0 +1,141 @@
+{
+  "cases": [
+    {
+      "case_id": "di01p_172.30.1.2",
+      "file": "case_001.mat",
+      "sha256": "671a1b05c46a7e3b97b5ae1c6091c00e8e0950fbb6fc3f6caa85295ffa623258",
+      "rows": 90,
+      "phase": "fresh_live_response_pilot",
+      "comparison_basis": "Saved live decisions and independently reconstructed packet features checked in Python; native MATLAB independently evaluates the formula.",
+      "saved_live_decisions_checked": true
+    },
+    {
+      "case_id": "di01p_172.30.1.3",
+      "file": "case_002.mat",
+      "sha256": "beeba149fef3d2733c6df912d83ef10c826d0667ce65d944ffdd62cb694e2db0",
+      "rows": 90,
+      "phase": "fresh_live_response_pilot",
+      "comparison_basis": "Saved live decisions and independently reconstructed packet features checked in Python; native MATLAB independently evaluates the formula.",
+      "saved_live_decisions_checked": true
+    },
+    {
+      "case_id": "db10p_172.30.1.2",
+      "file": "case_003.mat",
+      "sha256": "c1292cad51450c8e2327312036c1fed08f67a58505f4af46bd3ab334b3adfe0a",
+      "rows": 90,
+      "phase": "fresh_live_response_pilot",
+      "comparison_basis": "Saved live decisions and independently reconstructed packet features checked in Python; native MATLAB independently evaluates the formula.",
+      "saved_live_decisions_checked": true
+    },
+    {
+      "case_id": "db10p_172.30.1.3",
+      "file": "case_004.mat",
+      "sha256": "c27c4af4de06ab4105890e8dc21e26b187ef66e836c65fae12d3fb0d354ca0e6",
+      "rows": 90,
+      "phase": "fresh_live_response_pilot",
+      "comparison_basis": "Saved live decisions and independently reconstructed packet features checked in Python; native MATLAB independently evaluates the formula.",
+      "saved_live_decisions_checked": true
+    },
+    {
+      "case_id": "db11p_172.30.1.2",
+      "file": "case_005.mat",
+      "sha256": "85a82ad14bfba021a9610fac8d8ca1bb516f13bb747f22589a3c5b7b63045774",
+      "rows": 90,
+      "phase": "fresh_live_response_pilot",
+      "comparison_basis": "Saved live decisions and independently reconstructed packet features checked in Python; native MATLAB independently evaluates the formula.",
+      "saved_live_decisions_checked": true
+    },
+    {
+      "case_id": "db11p_172.30.1.3",
+      "file": "case_006.mat",
+      "sha256": "10be7807e83a91ad89096913cd7e2130d57cc4dfe2a7897cc8103bd7a6a5ca0c",
+      "rows": 90,
+      "phase": "fresh_live_response_pilot",
+      "comparison_basis": "Saved live decisions and independently reconstructed packet features checked in Python; native MATLAB independently evaluates the formula.",
+      "saved_live_decisions_checked": true
+    },
+    {
+      "case_id": "db11o_172.30.1.2",
+      "file": "case_007.mat",
+      "sha256": "05f49604e8169f8b71c581c840648f59850491a44c9460a30029bbcc730d7b37",
+      "rows": 90,
+      "phase": "fresh_live_response_pilot",
+      "comparison_basis": "Saved live decisions and independently reconstructed packet features checked in Python; native MATLAB independently evaluates the formula.",
+      "saved_live_decisions_checked": true
+    },
+    {
+      "case_id": "db11o_172.30.1.3",
+      "file": "case_008.mat",
+      "sha256": "e5d80e15ae6873b48b0f235d8c3bc7ba01d16bd999a8bc67aca05bf28760b54d",
+      "rows": 90,
+      "phase": "fresh_live_response_pilot",
+      "comparison_basis": "Saved live decisions and independently reconstructed packet features checked in Python; native MATLAB independently evaluates the formula.",
+      "saved_live_decisions_checked": true
+    },
+    {
+      "case_id": "db12o_172.30.1.2",
+      "file": "case_009.mat",
+      "sha256": "3f36f3fc0fc51e5fef2d3b2b57ee3d4e729ce1c1ea22cd5f8604fd8a0270d8af",
+      "rows": 120,
+      "phase": "fresh_live_response_pilot",
+      "comparison_basis": "Saved live decisions and independently reconstructed packet features checked in Python; native MATLAB independently evaluates the formula.",
+      "saved_live_decisions_checked": true
+    },
+    {
+      "case_id": "db12o_172.30.1.3",
+      "file": "case_010.mat",
+      "sha256": "b628a7bc9d240f206456fe126a47e59344f672049a390b64403c45dbe480dc21",
+      "rows": 120,
+      "phase": "fresh_live_response_pilot",
+      "comparison_basis": "Saved live decisions and independently reconstructed packet features checked in Python; native MATLAB independently evaluates the formula.",
+      "saved_live_decisions_checked": true
+    },
+    {
+      "case_id": "db12p_172.30.1.2",
+      "file": "case_011.mat",
+      "sha256": "b44ed75d762f47a1559735232fee1779bc93d5ab4ed713651a4478e9d1c25a7b",
+      "rows": 120,
+      "phase": "fresh_live_response_pilot",
+      "comparison_basis": "Saved live decisions and independently reconstructed packet features checked in Python; native MATLAB independently evaluates the formula.",
+      "saved_live_decisions_checked": true
+    },
+    {
+      "case_id": "db12p_172.30.1.3",
+      "file": "case_012.mat",
+      "sha256": "40ec4b832087c37ca98bf0e78f6a9e20ea647c3b4f2454606b10f8b4f823f650",
+      "rows": 120,
+      "phase": "fresh_live_response_pilot",
+      "comparison_basis": "Saved live decisions and independently reconstructed packet features checked in Python; native MATLAB independently evaluates the formula.",
+      "saved_live_decisions_checked": true
+    }
+  ],
+  "numerical_core_sha256": "32b85e91c235e883f1a0caed929fb483646d82d98304d6bc1271c49be9c9f041",
+  "inputs": {
+    "Lab/results/di01p/run_manifest.json": "3cbbfeff27fef075309d8178cdfb876f054bd9150ec077a5da726131a7456bb5",
+    "Lab/results/di01p/state_records.jsonl": "cfb9f3615cdb7fc7010b24396eecff6a7acdc7376c80f634f794be82adc4eae9",
+    "Lab/results/di01p/state_decisions.jsonl": "9808e7b1209e4f0355c595d8b3a838b4a426bc33be50bbe610a36a34635fa16a",
+    "Results/di01p_review.json": "dc1dfe0b494c8c00e7c300982324c302b4af199e8a8d5524b138bc0a5cc93b94",
+    "Models/state_model.json": "dca66e8f9604767e8ecb358313961e322d867669cd4cbcdcb93e620b5f2150d8",
+    "Models/state_policy.json": "9944364e19ea11ee53c5f884b2ec75117e1177dbe7316bc51f482ee91b5b50e8",
+    "Lab/results/db10p/run_manifest.json": "3804f36547d6e3644e0d3b6b66724b8ec6ce32b10d06880fc99639c32f4616d3",
+    "Lab/results/db10p/state_records.jsonl": "57a2d61a44cf465fde7458d286034ab2f2e91b4eb0ea675ba87a3596e280742a",
+    "Lab/results/db10p/state_decisions.jsonl": "9620097b0581ca701a515391d7d0345ed26f1ab0119b91c5c9182c3b0ead95e3",
+    "Results/db10p_review.json": "2d8b1182b4a7abc0c11c66b44957908b1182e29c020ce21158e2f778cf398195",
+    "Lab/results/db11p/run_manifest.json": "1ff6591dbcb34b6911f4958ebc7cbc7bf71d5feec5c81f5d47fded669b0d46aa",
+    "Lab/results/db11p/state_records.jsonl": "ee8ae749f0f6eaf8173213344a994c9cbe0ef9e1dfff24a04f5e5e9b8a4b9d93",
+    "Lab/results/db11p/state_decisions.jsonl": "147339994566c780d698f6c6094481d37669a07ac7281b2c60c3b3f4c3ff4d06",
+    "Results/db11p_review.json": "2eb3908fce5163aadc8ef71adc41832bd79076811756a57801dddb471ae6f1d2",
+    "Lab/results/db11o/run_manifest.json": "76a2e787be633d6628fe5920b95620e20cfbb4625c9cdd635beba590c2ecb791",
+    "Lab/results/db11o/state_records.jsonl": "8ceaad6cf2efb20968d7f7c6b19467385a4394cdfc123e96ff3a6767a03aa11e",
+    "Lab/results/db11o/state_decisions.jsonl": "0af6c9d52dcb9c084b10ca049b719176610973d3e9b7771f5a64f1b7ed3af6b3",
+    "Results/db11o_review.json": "df2714cdba0df0effa2e16e897539fa1374b3c1b07106c44ab4712fdfac85e2f",
+    "Lab/results/db12o/run_manifest.json": "ef8de901f3f4e88e38b63ec6bd34c322167597cb3be9a5946bf253294b74b74f",
+    "Lab/results/db12o/state_records.jsonl": "78b4adfbe8df83b6489bca55342446f21891603573451b5d23e168995e0925a6",
+    "Lab/results/db12o/state_decisions.jsonl": "281dd4383929fdf1133a9013cdb4286b5bed55f063261c502babfe34520d6405",
+    "Results/db12o_review.json": "06bc9b46745c2847a88ca7658ee749104c6d67427274cbcd4a82fe5e0b08b1d5",
+    "Lab/results/db12p/run_manifest.json": "1ed20c3eeb56b775b6f962a390a93896e5a3f76aa91abb389a9ba31ac4293d2a",
+    "Lab/results/db12p/state_records.jsonl": "d75dc3c59bff4b7148fbd3190bae1a7ebf542eb48ce45dc7b421fe5b29059d30",
+    "Lab/results/db12p/state_decisions.jsonl": "f4392a7dc4e7121993fed249b0c73957aaea4c46b2efcd9d9049fc4f91b1634e",
+    "Results/db12p_review.json": "fab815b26932c551c55b4b1e3d19276732bf78a62e884eec8944f9c484f331d5"
+  }
+}

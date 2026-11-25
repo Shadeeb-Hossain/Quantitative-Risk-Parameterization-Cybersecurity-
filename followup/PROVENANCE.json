@@ -1,0 +1,9 @@
+{
+  "author": "Elias Calboreanu",
+  "source_package": "DispatchConfirmation2026-11-24",
+  "source_freeze_sha256": "1fa2745c4f3ec97ef8a7b1e36dcd2d88c38f3a5ccf45579627ae607e46a78d8c",
+  "original_input_index_sha256": "cf42f2a734f2dc4945c13e39f3ac3b9d751ca6f62eb65126fdf65fb388f2f774",
+  "delivery_input_index_sha256": "3c5092edef4a58eff05ddac6d33ccbeb1aac288834256c2027fa9c259f56da77",
+  "change": "Input provenance keys use paths relative to the source package. Fixture bytes, source digests and numerical core are unchanged.",
+  "expected_report": "Original native MATLAB report; its input index digest identifies the original index. Replayed scores and decisions must agree; runtime and delivery index metadata may differ."
+}

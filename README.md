@@ -1,44 +1,49 @@
-# Quantitative-Risk-Parameterization-Cybersecurity-
-From Reconnaissance to Response: Quantitative Risk Parameterization and Game Theoretic Containment in Modern Enterprise Attack
--------------------------------------------------------------------------------------------------------------------------------
+# From Reconnaissance to Response
 
-Please cite the following paper if you are using the MATLAB code :
+This repository contains corrected versions of Shadeeb Hossain's MATLAB illustrations and numerical replays of two software-testbed studies. The studies compare decisions based on measured TCP connection state with count and persistence rules and measure the service impact of the response.
 
+## Original 36-trial study
 
-[1] Hossain, S., & Calboreanu, E. (2026). From Reconnaissance to Response: Quantitative Risk Parameterization and Game Theoretic Containment in Modern Enterprise Attack. arXiv preprint arXiv:2609.36485.
+The primary detector remained quiet in all 12 legitimate trials and crossed its threshold during all 24 SYN or NULL load windows. With a common persistence gate, the score and the matched count rule made identical decisions throughout the study. Persistence alone also alarmed during impaired legitimate activity.
 
-----------------------------------------------------------------------------------------------------------------------------------
+The service-preservation target **failed**. F02 missed ordinary-request dispatches and failed the paired service comparison. In F04, the guarded cohort's ordinary-request p95 latency was 271.22 ms higher under conditional proxy than under observation, exceeding the predefined 100 ms margin. All 58 matched requests completed.
 
-**MATLAB Source Code:** Fig_2_MONTE_CARLO_FAIR_results.m 
+- [MATLAB and Octave replay instructions](empirical/README.md)
+- [Numerical data](empirical/data/)
+- [Mathematics and findings](empirical/docs/study.md)
+- [Generated results and figures](empirical/output/)
 
+MATLAB R2026b Update 1 generated the figures and verification report. The same numerical replay also passed in GNU Octave 11.3.0. Replay uses retained numerical observations. Full packet and service-log reconstruction requires the archived captures and application records identified by the study manifest.
 
-<img width="869" height="641" alt="Fig_2" src="https://github.com/user-attachments/assets/4c21d854-c199-4166-915f-2ad11165fe88" />
+## Subsequent six-trial study
 
-Figure 2: Monte Carlo FAIR simulation of Annual Loss Exposure (ALE) for the 2023 MGM Resorts cyber incident (N=10,000 iterations).
+An instrumented diagnostic missed 3 of 1,549 ordinary requests or messages and recorded another first call beyond the 250 ms dispatch bound. A same-schedule confirmation and five subsequent regression trials ran with the host idle and the acceptance criteria unchanged. All 9,664 ordinary requests and messages succeeded. All 42 paired service cohorts passed, with maximum added p95 latency of 1.92172455 ms. The NULL response lease renewed 10 times. None of the 567 packets offered after the initial expiry reached the backend, and the lease expired after qualifying traffic stopped.
 
---------------------------------------------------------------------------------------------------------------------------------
+Native MATLAB reproduced 1,200 rows from 12 source cases with zero maximum absolute score error and rejected four corrupted-input controls. The gated score, gated count and persistence-only decisions agreed on these observations. These results describe the evaluated software response under the stated conditions. Evaluation under competing background workloads and on a physical Cisco ASA remains future work. F02 and F04 retain their original verdicts.
 
+To replay the subsequent observations, open the repository root in MATLAB and choose a new output directory. [Replay requirements](followup/README.md)
 
-**MATLAB Source Code :** Fig_4_Dynamic_Bayesian_Stackelberg_Decision_SIEM.m 
+```matlab
+addpath('followup');
+run_followup(fullfile(tempdir,'recon_followup_check'));
+```
 
+Fresh live trials require adaptation to the local VM and kernel. The November 24, 2026 manuscript candidate and reproduction archive are supplied separately for coauthor review.
 
-<img width="956" height="624" alt="Fig_4" src="https://github.com/user-attachments/assets/34c8a6d1-4577-44a6-afe9-4754d4b28cd8" />
+## Source illustrations
 
-Figure 4 : Performance of the proposed dynamic BayesianStackelberg
-decision engine under fluctuating SIEM log arrival
-rates (EPS). (A) Observed telemetry stream highlighting
-background noise versus active adversary signatures. (B)
-Posterior attack probability trajectory triggering automated
-containment upon crossing critical Stackelberg decision
-threshold.
+The original scripts are preserved at commit `2e72863ae761082d383c527a5bbd028bcf0c16bc`. The current entry points call the corrected illustrations in `source/matlab/`. [Source mathematics checks](source/README.md)
 
-________________________________________________________________________________________________________________________________
+| Script | Scope |
+| --- | --- |
+| `Fig_2_MONTE_CARLO_FAIR_results.m` | Illustrative FAIR Monte Carlo loss calculation |
+| `Fig_4_Dynamic_Bayesian_Stackelberg_Decision_SIEM.m` | Simulated SIEM stream with alert probabilities derived from its count rule |
+| `Fig_5_SIEM_different_trigger_times.m` | Stable count-evidence updates with explicit floor and cost assumptions |
 
-****MATLAB Source Code : **** Fig_5_SIEM_different_trigger_times.m
+The simulations assume probabilities, financial parameters and a belief floor whose empirical validity remains untested. The empirical implementation uses a finite-window log score and a separately calibrated threshold. Posterior calibration and economic optimality remain outside the empirical studies' scope.
 
-<img width="824" height="709" alt="Fig_5" src="https://github.com/user-attachments/assets/1e5d4209-ff3e-43ca-9005-3848cb2dcc9a" />
+## Attribution
 
-Figure 5 : Fig. 5: Dynamic Stackelberg containment threshold shifts and
-SOAR trigger times under parametric variations of perimeter
-exploitability P(E).
+Shadeeb Hossain developed the original framework and MATLAB simulations. Elias Calboreanu prepared the empirical implementation, replay code and revisions. Both authors retain their manuscript attribution.
 
+Hossain, S., and Calboreanu, E. (2026). *From Reconnaissance to Response: Quantitative Risk Parameterization and Game Theoretic Containment in Modern Enterprise Attack*. [arXiv:2609.36485](https://arxiv.org/abs/2609.36485)

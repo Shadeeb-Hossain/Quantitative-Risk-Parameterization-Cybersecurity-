@@ -1,0 +1,5 @@
+arm,trials,logical_planned,ordinary_intended,ordinary_success,ordinary_failed,undispatched,ordinary_failure_after_dispatch,intentional_abandonments,ordinary_retried_IDs,messages_intended,messages_success,messages_failed,connections_intended,connections_success,connections_failed
+always_proxy,9,23946,23856,23826,30,30,0,90,1,29970,29970,0,72,72,0
+conditional_drop,9,23946,23856,23678,178,33,145,90,205,29970,29350,620,72,68,4
+observe,9,23946,23856,23816,40,40,0,90,1,29970,29970,0,72,72,0
+conditional_proxy,9,23946,23856,23825,31,31,0,90,1,29970,29970,0,72,72,0
